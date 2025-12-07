@@ -7,7 +7,7 @@
  * - Outlier toggle functionality
  */
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import Plot from 'react-plotly.js';
 import { useTheme } from '../../context/ThemeContext';
 import {
@@ -28,6 +28,12 @@ const RegressionVisualizer = () => {
     const [showOutliers, setShowOutliers] = useState(true);
     const [selectedPoint, setSelectedPoint] = useState(null);
 
+    // Ref for the plot container
+    const plotContainerRef = useRef(null);
+
+    // Ref to track current points for event handlers (avoids stale closure)
+    const pointsRef = useRef(points);
+
     // Filter points based on outlier toggle
     const activePoints = useMemo(() => {
         if (showOutliers) return points;
@@ -46,27 +52,105 @@ const RegressionVisualizer = () => {
         return calculateAllMetrics(activePoints, regression.slope, regression.intercept);
     }, [activePoints, regression]);
 
-    // Handle click on plot to add point
+    // Handle click on existing point to select it
     const handlePlotClick = useCallback((event) => {
         if (event.points && event.points.length > 0) {
             // Clicked on existing point - select it
             const clickedIndex = event.points[0].pointIndex;
             setSelectedPoint(clickedIndex);
-            return;
-        }
-
-        // Get click coordinates
-        const xaxis = event.event?.target?.closest('.js-plotly-plot')?.querySelector('.xaxislayer-above');
-        if (!xaxis) return;
-
-        const x = event.xvals?.[0];
-        const y = event.yvals?.[0];
-
-        if (x !== undefined && y !== undefined) {
-            setPoints(prev => [...prev, { x, y }]);
-            setSelectedPoint(null);
         }
     }, []);
+
+    // Keep pointsRef in sync with points
+    useEffect(() => {
+        pointsRef.current = points;
+    }, [points]);
+
+    // Calculate axis ranges using current points from ref
+    const getAxisRangesFromRef = useCallback(() => {
+        const currentPoints = pointsRef.current;
+        const xVals = currentPoints.map(p => p.x);
+        const yVals = currentPoints.map(p => p.y);
+
+        const xRange = currentPoints.length > 0
+            ? [Math.min(...xVals) - 1, Math.max(...xVals) + 1]
+            : [0, 10];
+
+        const yRange = currentPoints.length > 0
+            ? [Math.min(...yVals) - 1, Math.max(...yVals) + 1]
+            : [0, 10];
+
+        return { xRange, yRange };
+    }, []);
+
+    // Regular getAxisRanges for non-event-handler use (e.g., layout)
+    const getAxisRanges = useCallback(() => {
+        const xVals = points.map(p => p.x);
+        const yVals = points.map(p => p.y);
+
+        const xRange = points.length > 0
+            ? [Math.min(...xVals) - 1, Math.max(...xVals) + 1]
+            : [0, 10];
+
+        const yRange = points.length > 0
+            ? [Math.min(...yVals) - 1, Math.max(...yVals) + 1]
+            : [0, 10];
+
+        return { xRange, yRange };
+    }, [points]);
+
+    // Attach native click handler to Plotly's plot area
+    useEffect(() => {
+        const container = plotContainerRef.current;
+        if (!container) return;
+
+        const handleNativeClick = (e) => {
+            // Find the plot area
+            const plotArea = container.querySelector('.nsewdrag');
+            if (!plotArea) return;
+
+            const rect = plotArea.getBoundingClientRect();
+
+            // Check if click is within the plot area
+            if (e.clientX < rect.left || e.clientX > rect.right ||
+                e.clientY < rect.top || e.clientY > rect.bottom) {
+                return;
+            }
+
+            // Calculate the position relative to the plot area
+            const xPixel = e.clientX - rect.left;
+            const yPixel = e.clientY - rect.top;
+
+            // Get axis ranges using the ref-based function (avoids stale closure)
+            const { xRange, yRange } = getAxisRangesFromRef();
+
+            // Convert pixel coordinates to data coordinates
+            const x = xRange[0] + (xPixel / rect.width) * (xRange[1] - xRange[0]);
+            const y = yRange[1] - (yPixel / rect.height) * (yRange[1] - yRange[0]); // Y is inverted
+
+            if (!isNaN(x) && !isNaN(y)) {
+                setPoints(prev => [...prev, { x, y }]);
+                setSelectedPoint(null);
+            }
+        };
+
+        // Wait for Plotly to render, then attach listener
+        const timeout = setTimeout(() => {
+            const plotArea = container.querySelector('.nsewdrag');
+            if (plotArea) {
+                plotArea.style.cursor = 'crosshair';
+                plotArea.addEventListener('click', handleNativeClick);
+            }
+        }, 100);
+
+        return () => {
+            clearTimeout(timeout);
+            const plotArea = container.querySelector('.nsewdrag');
+            if (plotArea) {
+                plotArea.removeEventListener('click', handleNativeClick);
+            }
+        };
+    }, [getAxisRangesFromRef]);
 
     // Remove selected point
     const removeSelectedPoint = useCallback(() => {
@@ -129,6 +213,10 @@ const RegressionVisualizer = () => {
     // Calculate regression line points
     const xRange = points.length > 0
         ? [Math.min(...points.map(p => p.x)) - 1, Math.max(...points.map(p => p.x)) + 1]
+        : [0, 10];
+
+    const yRange = points.length > 0
+        ? [Math.min(...points.map(p => p.y)) - 1, Math.max(...points.map(p => p.y)) + 1]
         : [0, 10];
 
     const lineX = [xRange[0], xRange[1]];
@@ -214,10 +302,11 @@ const RegressionVisualizer = () => {
             title: 'Y',
             gridcolor: plotColors.grid,
             zerolinecolor: plotColors.grid,
+            range: yRange,
         },
         showlegend: false,
         hovermode: 'closest',
-        dragmode: 'pan',
+        dragmode: false,
     };
 
     const plotConfig = {
@@ -261,7 +350,7 @@ const RegressionVisualizer = () => {
             {/* Main Content */}
             <div className="visualizer-content">
                 {/* Plot */}
-                <div className="visualizer-plot">
+                <div className="visualizer-plot" ref={plotContainerRef}>
                     <div className="plot-instruction">
                         Click anywhere on the plot to add points
                     </div>
