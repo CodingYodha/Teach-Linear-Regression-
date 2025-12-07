@@ -20,7 +20,7 @@ const About = () => {
             <section className="creator-section">
                 <div className="creator-card">
                     <div className="creator-avatar">
-                        <span className="avatar-letter">S</span>
+                        <img src="/profile.jpg" alt="Shivaprasad Gowda" className="avatar-image" />
                     </div>
 
                     <div className="creator-info">
