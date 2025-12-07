@@ -19,7 +19,6 @@ const navItems = [
     { path: '/outliers', label: 'Outliers' },
     { path: '/gradient', label: 'Gradient Descent' },
     { path: '/multiple', label: 'Multiple Regression' },
-    { path: '/normal-equation', label: 'Normal Equation' },
     { path: '/regularization', label: 'Regularization' },
 ];
 

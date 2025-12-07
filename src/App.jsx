@@ -17,7 +17,7 @@ import Visualizer from './pages/Visualizer';
 import Outliers from './pages/Outliers';
 import GradientDescentPage from './pages/GradientDescentPage';
 import MultipleRegression from './pages/MultipleRegression';
-import NormalEquation from './pages/NormalEquation';
+
 import Regularization from './pages/Regularization';
 import About from './pages/About';
 
@@ -50,7 +50,7 @@ function App() {
 
             {/* Advanced Topics */}
             <Route path="multiple" element={<MultipleRegression />} />
-            <Route path="normal-equation" element={<NormalEquation />} />
+
             <Route path="regularization" element={<Regularization />} />
 
             {/* About */}
