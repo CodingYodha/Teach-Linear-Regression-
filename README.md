@@ -73,4 +73,4 @@ npm run preview
 - Lucide React Icons
 
 ---
-Ideation & Creativity by <b> CodingYodha <b> | Vibe Coded with Google Antigravity
+Ideation & Creativity by <b> CodingYodha </b> | Vibe Coded with Google Antigravity
