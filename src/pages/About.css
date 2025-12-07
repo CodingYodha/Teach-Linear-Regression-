@@ -2,6 +2,22 @@
 .about-page {
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+}
+
+/* Subtle background gradient */
+.about-page::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Creator Section */

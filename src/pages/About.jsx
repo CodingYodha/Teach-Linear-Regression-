@@ -24,20 +24,19 @@ const About = () => {
                     </div>
 
                     <div className="creator-info">
-                        <h2 className="creator-name">Shivaprasad</h2>
+                        <h2 className="creator-name">Shivaprasad Gowda</h2>
                         <span className="creator-handle">CodingYodha</span>
 
                         <p className="creator-bio">
-                            Passionate about making machine learning concepts accessible through
-                            interactive visualizations. This platform was built to bridge the gap
-                            between mathematical theory and intuitive understanding.
+                            AIML undergrad focused on building neural networks and exploring the
+                            fast-paced, ever-evolving world of Artificial Intelligence.
                         </p>
 
                         <div className="creator-tags">
                             <span className="tag">Machine Learning</span>
-                            <span className="tag">Web Development</span>
+                            <span className="tag">Deep Learning</span>
                             <span className="tag">Data Science</span>
-                            <span className="tag">AI Education</span>
+                            <span className="tag">Real world ML</span>
                         </div>
                     </div>
                 </div>
