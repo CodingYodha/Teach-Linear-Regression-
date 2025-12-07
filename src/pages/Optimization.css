@@ -193,34 +193,203 @@
 }
 
 .lr-visual {
+    position: relative;
     display: flex;
-    justify-content: center;
-    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.125rem;
     padding: 1rem;
     background: var(--bg-tertiary);
     border-radius: var(--radius-md);
+    min-height: 50px;
+    overflow: hidden;
 }
 
+/* Step indicators for learning rate visualization */
 .step {
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: var(--accent-primary);
-    border-radius: 4px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.step.small {
-    width: 15px;
+/* Too Small - Many tiny steps, slow animation */
+.too-small .lr-visual {
+    animation: slowProgress 4s ease-in-out infinite;
 }
 
-.step.medium {
-    width: 30px;
+.too-small .step.small {
+    width: 8px;
+    height: 8px;
+    background: var(--warning);
+    opacity: 0.8;
+    animation: fadeInSmall 4s ease-in-out infinite;
 }
 
-.step.large {
-    width: 60px;
+.too-small .step.small:nth-child(1) {
+    animation-delay: 0s;
 }
 
-.step.diverge {
+.too-small .step.small:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.too-small .step.small:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.too-small .step.small:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+@keyframes fadeInSmall {
+
+    0%,
+    20% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    25%,
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+@keyframes slowProgress {
+    0% {
+        padding-left: 1rem;
+    }
+
+    100% {
+        padding-left: 1rem;
+    }
+}
+
+/* Just Right - Medium steps, smooth animation */
+.just-right .lr-visual {
+    animation: smoothProgress 3s ease-in-out infinite;
+}
+
+.just-right .step.medium {
+    width: 14px;
+    height: 14px;
+    background: var(--success);
+    animation: fadeInMedium 3s ease-in-out infinite;
+}
+
+.just-right .step.medium:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.just-right .step.medium:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.just-right .step.medium:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+@keyframes fadeInMedium {
+
+    0%,
+    20% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    30%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes smoothProgress {
+
+    0%,
+    100% {
+        background: var(--bg-tertiary);
+    }
+
+    50% {
+        background: rgba(16, 185, 129, 0.1);
+    }
+}
+
+/* Too Large - Big jumpy steps, diverging animation */
+.too-large .lr-visual {
+    animation: divergeBackground 2s ease-in-out infinite;
+}
+
+.too-large .step.large {
+    width: 20px;
+    height: 20px;
     background: var(--error);
+    animation: bounceStep 2s ease-in-out infinite;
+}
+
+.too-large .step.large:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.too-large .step.large:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.too-large .step.diverge {
+    background: var(--error);
+    animation: divergeStep 2s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes bounceStep {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-8px);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+
+    75% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes divergeStep {
+
+    0%,
+    30% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    70%,
+    100% {
+        transform: translateX(30px) scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+@keyframes divergeBackground {
+
+    0%,
+    100% {
+        background: var(--bg-tertiary);
+    }
+
+    50% {
+        background: rgba(239, 68, 68, 0.15);
+    }
 }
 
 /* Gradient Derivation */
