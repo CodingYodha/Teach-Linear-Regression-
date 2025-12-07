@@ -72,6 +72,5 @@ npm run preview
 - Plotly.js
 - Lucide React Icons
 
-## License
-
-MIT
+---
+Ideation & Creativity by <b> CodingYodha </b> | Vibe Coded with Opus 4.5
