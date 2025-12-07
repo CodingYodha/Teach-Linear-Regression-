@@ -1,0 +1,322 @@
+/* Math Formulation Page Styles */
+.math-page {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Math Blocks */
+.math-block {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.math-block.main-formula {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-color: var(--accent-primary);
+}
+
+.formula-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.formula-display {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--text-primary);
+    padding: 1rem;
+}
+
+.formula-display.highlight {
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.formula-note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* Notation Grid */
+.notation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.notation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.notation-symbol {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.notation-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.notation-desc {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+/* Vector Form */
+.vector-form {
+    text-align: left;
+}
+
+.vector-explanation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.vector-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+}
+
+.vector-label {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    min-width: 30px;
+}
+
+.vector-content {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.vector-desc {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    margin-left: auto;
+}
+
+/* Goal Flow */
+.goal-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.goal-step {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.goal-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.goal-step h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.goal-step p {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.flow-arrow {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+/* Derivation */
+.derivation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.derivation-step {
+    padding: 1.25rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--accent-primary);
+}
+
+.step-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.derivation-step .formula {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.derivation-step .formula.highlight {
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem;
+}
+
+/* Matrix Grid */
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.matrix-item {
+    text-align: center;
+}
+
+.matrix-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    margin-bottom: 0.75rem;
+}
+
+.matrix-display {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+}
+
+.matrix-display pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.matrix-size {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    margin-top: 0.5rem;
+}
+
+/* Takeaways */
+.takeaways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.takeaway-card {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.takeaway-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--bg-tertiary);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
+
+.takeaway-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.takeaway-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vector-explanation {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-flow {
+        flex-direction: column;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+    }
+
+    .matrix-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .takeaways-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formula-display {
+        font-size: 1.25rem;
+    }
+}

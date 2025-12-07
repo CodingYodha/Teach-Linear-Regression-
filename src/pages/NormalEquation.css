@@ -1,0 +1,341 @@
+/* Normal Equation Page Styles */
+.normal-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Formula */
+.normal-formula {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(99, 102, 241, 0.1));
+    border: 1px solid var(--success);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+}
+
+.formula-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.formula-display {
+    font-family: 'Times New Roman', serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.formula-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.breakdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.item-symbol {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    margin-bottom: 0.25rem;
+}
+
+.item-name {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+}
+
+/* Calculator Demo */
+.calculator-demo {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.demo-actions {
+    margin-bottom: 1.5rem;
+}
+
+.demo-content {
+    display: grid;
+    grid-template-columns: 200px 1fr 280px;
+    gap: 1.5rem;
+}
+
+/* Data Table */
+.data-table-container h4,
+.calculation-steps h4,
+.result-plot h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.data-table {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+}
+
+.table-header {
+    background: var(--bg-card);
+    font-weight: 600;
+    color: var(--text-primary);
+    position: sticky;
+    top: 0;
+}
+
+.table-row {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+/* Calculation Steps */
+.calculation-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.step.final {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--success);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-primary);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.step.final .step-number {
+    background: var(--success);
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.step-result {
+    font-family: 'Times New Roman', serif;
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.step-result.solution {
+    display: flex;
+    gap: 1.5rem;
+    font-style: normal;
+}
+
+.step-result.solution strong {
+    color: var(--success);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Result Plot */
+.result-plot {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-plot .js-plotly-plot {
+    flex: 1;
+    min-height: 200px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.result-metrics {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.result-metric {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.result-metric span {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.result-metric strong {
+    font-size: 1.125rem;
+    color: var(--success);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Comparison Grid */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.comparison-card.normal {
+    border-top: 4px solid var(--success);
+}
+
+.comparison-card.gd {
+    border-top: 4px solid var(--accent-primary);
+}
+
+.comparison-card h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.comparison-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.comparison-card li {
+    font-size: 0.875rem;
+    padding: 0.375rem 0;
+    color: var(--text-secondary);
+}
+
+.comparison-card li.pro {
+    color: var(--success);
+}
+
+.comparison-card li.con {
+    color: var(--text-tertiary);
+}
+
+.when-use {
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.when-use strong {
+    color: var(--text-primary);
+}
+
+/* Insight Box */
+.insight-box {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 2rem;
+}
+
+.insight-box h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.insight-box p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .demo-content {
+        grid-template-columns: 1fr;
+    }
+
+    .data-table-container {
+        max-height: 200px;
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .formula-breakdown {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .formula-display {
+        font-size: 1.5rem;
+    }
+}

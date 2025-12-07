@@ -1,0 +1,325 @@
+/* Regularization Page Styles */
+.regularization-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.page-header .badge {
+    margin-top: 1rem;
+}
+
+/* Problem Solution */
+.problem-solution {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.problem,
+.solution {
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+}
+
+.problem {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--error);
+}
+
+.solution {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid var(--success);
+}
+
+.problem h4,
+.solution h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.problem p,
+.solution p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Regularized Cost */
+.regularized-cost {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.formula-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.formula-display {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.lambda-note {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.lambda-note strong {
+    color: var(--accent-primary);
+}
+
+/* Regularization Types */
+.regularization-types {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.type-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.type-card.ridge {
+    border-top: 4px solid var(--success);
+}
+
+.type-card.lasso {
+    border-top: 4px solid var(--warning);
+}
+
+.type-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.type-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.type-formula {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.type-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.type-card li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: 0.375rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.type-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
+
+/* Demo */
+.reg-demo {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+}
+
+.reg-demo .demo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.cost-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cost-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.cost-label {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    min-width: 80px;
+}
+
+.cost-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.cost-value.mse {
+    color: var(--accent-primary);
+}
+
+.cost-value.ridge {
+    color: var(--success);
+}
+
+.cost-value.lasso {
+    color: var(--warning);
+}
+
+.penalty {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+.demo-plot {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Differences Table */
+.differences-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.diff-header,
+.diff-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1rem 1.5rem;
+}
+
+.diff-header {
+    background: var(--bg-tertiary);
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.diff-row {
+    font-size: 0.875rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.diff-row:last-child {
+    border-bottom: none;
+}
+
+.diff-row span:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.diff-row span:nth-child(2) {
+    color: var(--success);
+}
+
+.diff-row span:nth-child(3) {
+    color: var(--warning);
+}
+
+/* Coming Soon */
+.coming-soon {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid var(--info);
+    border-radius: var(--radius-lg);
+}
+
+.coming-soon svg {
+    color: var(--info);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.coming-soon h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.coming-soon p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .reg-demo {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .problem-solution,
+    .regularization-types {
+        grid-template-columns: 1fr;
+    }
+
+    .diff-header,
+    .diff-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    .diff-header span:first-child,
+    .diff-row span:first-child {
+        grid-column: 1 / -1;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+}

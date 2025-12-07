@@ -1,0 +1,258 @@
+/* Multiple Regression Page Styles */
+.multiple-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Formula Block */
+.formula-block {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.5rem;
+}
+
+.formula-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.formula-display {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.75rem;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.formula-current {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.formula-current span {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+}
+
+.formula-current .equation {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+.formula-current .coef {
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-style: normal;
+}
+
+/* 3D Demo */
+.three-d-demo {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+}
+
+.three-d-demo .demo-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.three-d-demo .control-group h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.parameter-impact h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.parameter-impact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.parameter-impact li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding: 0.375rem 0;
+}
+
+.parameter-impact li strong {
+    color: var(--accent-primary);
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+}
+
+.three-d-plot {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Matrix Explanation */
+.matrix-explanation {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.matrix-block {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.matrix-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-formula {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent-primary);
+}
+
+.dimensions-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.dim-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+    min-width: 120px;
+}
+
+.dim-symbol {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--accent-primary);
+}
+
+.dim-size {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    margin: 0.25rem 0;
+}
+
+.dim-desc {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+/* Use Cases */
+.use-cases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.use-case {
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.use-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.use-case h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.use-case p {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .three-d-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .three-d-demo .demo-controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .three-d-demo .control-group {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .use-cases {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .matrix-explanation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dimensions-info {
+        flex-wrap: wrap;
+    }
+
+    .use-cases {
+        grid-template-columns: 1fr;
+    }
+}

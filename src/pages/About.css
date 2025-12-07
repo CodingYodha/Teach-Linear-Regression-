@@ -1,0 +1,189 @@
+/* About Page Styles */
+.about-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Creator Section */
+.creator-section {
+    margin-bottom: 3rem;
+}
+
+.creator-card {
+    display: flex;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    align-items: flex-start;
+}
+
+.creator-avatar {
+    width: 100px;
+    height: 100px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-letter {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.creator-info {
+    flex: 1;
+}
+
+.creator-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.creator-handle {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.creator-bio {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.creator-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.375rem 0.875rem;
+    background: var(--bg-tertiary);
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* Project Info */
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-block {
+    padding: 1.25rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.info-block h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.info-block p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Tech Grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.tech-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.tech-desc {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+}
+
+/* Credits Box */
+.credits-box {
+    text-align: center;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.08));
+    border: 1px solid var(--accent-primary);
+    border-radius: var(--radius-xl);
+}
+
+.credits-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0;
+}
+
+.credits-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.credits-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.credits-divider {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .creator-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .creator-tags {
+        justify-content: center;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
